@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ZeroCater Frontend Engineering Screener Test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body>
+
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+    {{message}}
+    <!-- https://stackoverflow.com/questions/32448744/ng-repeat-show-index-of-object-in-array-in-the-html -->
+    <h3>All Services</h3>
+     <div ng-repeat="service in services">
+      <p>  Service#{{ $index }}: {{ service.status }}</p>
+    </div>
+
+    
+<!-- 
+    <table ng-repeat="service in services">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+        <tr>
+          <td>{{ $index }}</td>
+          <td>{{ service.status }}</td>
+        </tr>
+       </table> -->
+
+    <h3>Completed Services in Order of Resolution</h3>
+    <div ng-repeat="service in resolvedPromises">
+        <p> {{$index+1}}. {{ service }}</p>
+      </div>
+      
+      {{resolvedPromises}}
+  </div>
+</body>
+
+</html>
